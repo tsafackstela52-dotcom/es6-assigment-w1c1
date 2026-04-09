@@ -1,31 +1,30 @@
 
 
 const fetchUserData = async () => {
-    console.log("🚀 Requête lancée...");
+    console.log(" Requête lancée...");
 
     try {
         const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
 
         if (!response.ok) {
-            // "new Error" avec un E majuscule
+          
             throw new Error(`Utilisateur introuvable ! Statut : ${response.status}`);
         }
 
-        // On reste DANS le try pour transformer la réponse
         const user = await response.json(); 
 
-        // On affiche le résultat (sans guillemets autour de la commande)
+      
         console.log(`Bonjour Name : ${user.name} `);
 
     } catch (error) {
-        // Le catch attrape tout ce qui a échoué dans le bloc try ci-dessus
+
        console.log(
         "%c Erreur : " + error.message, 
         "color: red; font-weight: bold; font-size: 14px;"
     );
         console.error("Error fetching user data :", error);
     }
-    // La fin de la fonction est ici
+
 };
 
 fetchUserData();
