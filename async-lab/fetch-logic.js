@@ -28,6 +28,47 @@ const fetchUserData = async () => {
 };
 
 fetchUserData();
+fetchUserData();
+
+
+const getFastData = async () => {
+    console.log(" Requête lancée...");
+
+    try {
+        const response = await Promise.all ([
+            fetch("https://jsonplaceholder.typicode.com/users/1"),
+            fetch("https://jsonplaceholder.typicode.com/posts/1"),
+        ]);
+
+        if (!response.ok) {
+         
+            throw new Error(`Utilisateur introuvable ! Statut : ${response.status}`);
+        }
+
+   
+           const user = await userResponse.json ();
+           const post = await postResponse.json ();
+        ; 
+
+        
+        console.log(`Les deux requetes sont terminées  `);
+        console.log(`Nom : ${user.name}`);
+          console.log(`Titre : ${post.title}`);
+
+
+    } catch (error) {
+   
+       console.log(
+        "%c Erreur : " + error.message, 
+        "color: red; font-weight: bold; font-size: 14px;"
+    );
+        console.error("Error fetching user data :", error);
+    }
+    console.log('requete terminée');
+   
+};
+
+GetFastData();
 /* --- ANALYSE TECHNIQUE ---
 
    1. Pourquoi le code de départ n'a pas affiché le nom ?
