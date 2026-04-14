@@ -1,3 +1,4 @@
+// AUTHOR : TSAFACK SYLVIA STELA
 // Remplacons le var par le let car ces objets ne changent pas
 const student1 = {
   name: "Marie",
